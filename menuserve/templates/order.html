@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}El Llanero - Order {{order.name}}{% endblock %}
+
+{% block location-name %}{{ current_location }}{% endblock %}
+{% block extra-loc-detail %}<a href="{% url 'locations' %}" class="location-change">Change Location</a>{% endblock %}
+
+{% block content %}
+  <p class="jumbotron text-center customer-name">{{order.name}}</p>
+  <p class="jumbotron text-center customer-address">{{order.delivery}}</p>
+
+  <div class="row">
+    {% for item in order.items.all %}
+    <div class="col-lg-4">
+      {% if item.item.image %}
+        <img src="{{item.item.image.url}}" class="rounded-circle plate-icon"><title>{{item.item.name}}</title></img>
+      {% endif %}
+      <h2>{{item.item.name}}</h2>
+      <h2>&times{{item.quantity}}</h2>
+    </div><!-- /.col-lg-4 -->
+    {% endfor %}
+  </div>
+
+  <div class="row">
+    <div class="col text-center">
+      <a class="btn back-to-orders-btn" href="{% url 'orders' %}">BACK TO ORDERS</a>
+    </div>
+  </div>
+
+
+  <form method="post" action="">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col text-center">
+        <button name="ready" value="{{order.id}}" class="btn order-ready-btn">DONE AND READY</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

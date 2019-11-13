@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}El Llanero - Menu{% endblock %}
+
+{% block content %}
+  <p class="jumbotron text-center food-type">Traditional Dishes</p>
+  <p class="jumbotron text-center food-description">Delicious Dishes traditionally eaten by the people of Venezuela.</p>
+
+  <form action="" method="post" target="hiddenFrame">
+    {% csrf_token %}
+    <div class="row">
+      {% for dish in dishes %}
+      <div class="col-lg-4">
+        {% if dish.image %}
+          <img src="{{dish.image.url}}" class="rounded-circle plate-icon"><title>{{dish.name}}</title></img>
+        {% endif %}
+        <h2>{{ dish.name}}</h2>
+        <p>{{ dish.description }}</p>
+        <p class="menu-price">{{ dish.price }}</p>
+        {% if user.is_authenticated and is_customer %}
+          <p><button type="submit" name="dish" class="btn add-to-bag-btn" value="{{ dish.id }}" target="hiddenFrame">ADD TO BAG &raquo;</button></p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div><!-- /.row -->
+  </form>
+
+  <p class="jumbotron text-center food-type">Traditional Snacks</p>
+  <p class="jumbotron text-center food-description">Delicious Snacks traditionally eaten by the people of Venezuela.</p>
+
+  <form action="" method="post" target="hiddenFrame">
+    {% csrf_token %}
+    <div class="row">
+      {% for snack in snacks %}
+      <div class="col-lg-4">
+        {% if snack.image %}
+          <img src="{{snack.image.url}}" class="rounded-circle plate-icon"><title>{{snack.name}}</title></img>
+        {% endif %}
+        <h2>{{ snack.name}}</h2>
+        <p>{{ snack.description }}</p>
+        <p class="menu-price">{{ snack.price }}</p>
+        {% if user.is_authenticated and is_customer %}
+          <p><button type="submit" name="snack" class="btn add-to-bag-btn" value="{{ snack.id }}" target="hiddenFrame">ADD TO BAG &raquo;</button></p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div><!-- /.row -->
+  </form>
+
+  <p class="jumbotron text-center food-type">Traditional Drinks</p>
+  <p class="jumbotron text-center food-description">Delicious Drinks traditionally eaten by the people of Venezuela.</p>
+
+  <form action="" method="post" target="hiddenFrame">
+    {% csrf_token %}
+    <div class="row">
+      {% for drink in drinks %}
+      <div class="col-lg-4">
+        {% if drink.image %}
+          <img src="{{drink.image.url}}" class="rounded-circle plate-icon"><title>{{drink.name}}</title></img>
+        {% endif %}
+        <h2>{{ drink.name}}</h2>
+        <p>{{ drink.description }}</p>
+        <p class="menu-price">{{ drink.price }}</p>
+        {% if user.is_authenticated and is_customer %}
+          <p><button type="submit" name="drink" class="btn add-to-bag-btn" value="{{ drink.id }}" target="hiddenFrame">ADD TO BAG &raquo;</button></p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div><!-- /.row -->
+  </form>
+
+  <p class="jumbotron text-center food-type">Traditional Desserts</p>
+  <p class="jumbotron text-center food-description">Delicious Desserts traditionally eaten by the people of Venezuela.</p>
+
+  <form action="" method="post" target="hiddenFrame">
+    {% csrf_token %}
+    <div class="row">
+      {% for dessert in desserts %}
+      <div class="col-lg-4">
+        {% if dessert.image %}
+          <img src="{{dessert.image.url}}" class="rounded-circle plate-icon"><title>{{dessert.name}}</title></img>
+        {% endif %}
+        <h2>{{ dessert.name}}</h2>
+        <p>{{ dessert.description }}</p>
+        <p class="menu-price">{{ dessert.price }}</p>
+        {% if user.is_authenticated and is_customer %}
+          <p><button type="submit" name="dessert" class="btn add-to-bag-btn" value="{{ dessert.id }}" target="hiddenFrame">ADD TO BAG &raquo;</button></p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div><!-- /.row -->
+  </form>
+{% endblock %}

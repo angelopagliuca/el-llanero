@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}El Llanero{% endblock %}</title>
+
+    {% load static %}
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/carousel.css' %}">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+        <a href="{% url 'index' %}"><div class="logo"></div></a>
+        <a class="navbar-brand brand-name" href="{% url 'index' %}">
+          <span class="title-1">El Llanero: </span>
+          <span class="title-2">Venezuelan </span>
+          <span class="title-3">Cuisine </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'menu' %}">MENU <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'locations' %}">LOCATIONS</a>
+            </li>
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'orders' %}">ORDERS</a>
+              {% endif %}
+            </li>
+            <li class="nav-item">
+              {% if user.employee.is_manager %}
+                <a class="nav-link" href="{% url 'portal' %}">PORTAL</a>
+              {% endif %}
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url 'sign-in' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  HOLA, {{user.first_name|upper}}
+              </a>
+              <div class="dropdown-menu drop-log" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item drop-txt" href="{% url 'logout' %}">LOG OUT</a>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sign-in' %}">{% block user %}SIGN IN{% endblock %}</a>
+            </li>
+            {% endif %}
+            <li class="nav-item nav-bag">
+              {% if user.is_authenticated and is_customer %}
+                <a class="nav-link btn bag-btn" href="{% url 'bag' %}">BAG <i class='fas fa-shopping-bag fas-bag'></i> </a>
+              {% else %}
+                <a class="nav-link btn bag-btn disabled" href="" aria-disabled="true">BAG <i class='fas fa-shopping-bag fas-bag'></i> </a>
+              {% endif %}
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="top-buffer"></div>
+
+    {% block body %}
+
+    {% block dark-banner %}
+    <div class="location jumbotron text-center">
+      <p class="location-name">{% block location-name %}EL LLANERO{% endblock %}</p>
+      <p class="location-address">{% block location-address %}XXXX Street Name, City, State XXXXX{% endblock %}</p>
+      <p class="location-phone">{% block location-phone %}P: xxx-xxx-xxxx{% endblock %}</p>
+      <p class="location-times">{% block location-times %}Open: xx:xxam --- xx:xxpm{% endblock %}</p>
+      <p class="menu-download">{% block extra-loc-detail %}Download: <a href="" class="location-change">Menu</a>{% endblock %}</p>
+    </div>
+    {% endblock %}
+
+    <iframe name="hiddenFrame" class="hide"></iframe>
+
+    <div class="container marketing">
+
+      {% block content %}
+
+      {% endblock %}
+
+    </div>
+
+    {% endblock %}
+
+    <footer>
+      <p class="footer-p">Angelo Pagliuca</p>
+      <a class="footer-brand brand-name" href="{% url 'index' %}">
+        <span class="title-1">El Llanero: </span>
+        <span class="title-2">Venezuelan </span>
+        <span class="title-3">Cuisine </span>
+      </a>
+    </footer>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'bootstrap/js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block extrascripts %}{% endblock %}
+
+  </body>
+
+</html>

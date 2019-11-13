@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}El Llanero - Locations{% endblock %}
+
+{% block extra-loc-detail %}<p class="location-change">Choose Location</a></p>{% endblock %}
+
+{% block content %}
+  <p class="jumbotron text-center orders-title">LOCATIONS</p>
+
+  <div class="row">
+    <div class='col'>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="jumbotron btn-group-justified text-center locations">
+          {% for location in locations %}
+            {% if location.active %}
+                <button type="submit" name="location" value="{{location.id}}" class="btn location-active-btn">{{ location.name }}</button>
+            {% else %}
+                <button type="submit" name="location" value="{{location.id}}" class="btn location-btn">{{ location.name }}</button>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

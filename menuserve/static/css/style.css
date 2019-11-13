@@ -1,0 +1,966 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFFAFA; /*#F8F8FF;*/
+  font-family: Roboto, sans-serif;
+}
+
+.top-buffer {
+  height: 60px;
+}
+
+footer {
+  background-color: #222222;
+  position: relative;
+  height: 60px;
+}
+
+.footer-p {
+  display: inline-block;
+  font-family: Roboto-Condensed;
+  font-size: 30px;
+  margin: 15px;
+  font-size: calc(17px + .5vw);
+  color: #FFFAFA;
+}
+
+.footer-brand {
+  display: inline-block;
+  margin: 15px;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
+
+.footer-brand:hover {
+  text-decoration: none;
+}
+
+.hide {
+  display: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.center-div {
+  background: none;
+  margin: 0;
+  padding: 0px 0px 50px 0px;
+}
+
+.title-big {
+  background: none;
+  font-family: Alegreya;
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
+  color: #FFCC00;
+}
+
+/* TYPOGRAPHY ----------------------------------- */
+
+.brand-name {
+  font-family: Roboto-Condensed;
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-size: calc(11px + .5vw);
+}
+
+/* BUTTONS -------------------------------------- */
+
+.btn {
+  border: 2px solid black;
+  padding: 5px 30px;
+  color: black;
+  cursor: pointer;
+  border-color: #FFCC00;
+}
+
+.btn:hover {
+  background-color: #FFCC00;
+}
+
+.bag-btn {
+  border-color: #FFCC00;
+  color: yellow;
+  width: 125px;
+}
+
+.add-to-bag-btn {
+  border-color: #FFCC00;
+  color: darkgrey;
+}
+
+.order-btn {
+  margin: 2px;
+}
+
+.add-item {
+  display: inline-block;
+  vertical-align: top;
+  padding: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.remove-item {
+  display: inline-block;
+  vertical-align: top;
+  border-color: #CF142B;
+  padding: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.remove-item:hover {
+  background-color: #CF142B;
+}
+
+.cooking-btn {
+  border-color: #00247D;
+}
+
+.cooking-btn:hover {
+  background-color: #00247D;
+}
+
+.food-ready-btn {
+  border-color: #FFCC00;
+}
+
+.back-to-orders-btn {
+  border-color: #00247D;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.back-to-orders-btn:hover {
+  background-color: #00247D;
+}
+
+.order-ready-btn {
+  border-color: #535353;
+  font-size: 40px;
+  margin: 40px;
+}
+
+.order-ready-btn:hover {
+  background-color: #535353;
+}
+
+.edit-btn {
+  border-color: #535353;
+  background-color: #F0F0F0;
+  padding: 3px;
+  color: white;
+  margin-left: 5px;
+}
+
+.edit-btn:hover {
+  background-color: #FFFFFF;
+}
+
+.edit-food-type-btn {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+}
+
+.edit-food-description-btn {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+}
+
+.edit-icon-btn {
+  position:absolute;
+  left: 50%;
+  margin-left: -30px;
+  top: 50%;
+  margin-top: -30px;
+}
+
+.edit-plate-name-btn {
+  display: inline-block;
+  vertical-align: top;
+  width: 35px;
+  height: 35px;
+}
+
+.edit-plate-description-btn {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px;
+  width: 25px;
+  height: 25px;
+}
+
+.edit-price-btn {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px;
+  width: 25px;
+  height: 25px;
+}
+
+.edit-btn-sm {
+  border-color: #00247D;
+}
+
+.edit-btn-sm:hover {
+  background-color: #00247D;
+}
+
+.delete-btn {
+  border-color: #CF142B;
+}
+
+.delete-btn:hover {
+  background-color: #CF142B;
+}
+
+.new-plate-btn {
+  border-color: #00247D;
+}
+
+.new-plate-btn:hover {
+  background-color: #00247D;
+}
+
+.publish-menu-btn {
+  border-color: #535353;
+  font-size: 40px;
+  margin: 40px;
+}
+
+.publish-menu-btn:hover {
+  background-color: #535353;
+}
+
+/* NAV BAR COMPONENTS --------------------------- */
+
+.navbar-custom {
+  background-color: #222222;
+}
+
+.navbar-right {
+  position: fixed; right: 0;
+}
+
+.logo {
+  background: url("../images/arepa-icon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 15px;
+  width: 50px;
+  height: 45px;
+}
+
+.title-1 {
+  color:#FFCC00;
+}
+
+.title-2 {
+  color:#00247D;
+}
+
+.title-3 {
+  color:#CF142B;
+}
+
+.nav-bag {
+  margin:0px 20px 0px 20px;
+}
+
+.drop-log {
+  background-color: #222222;
+}
+
+.drop-txt {
+  color: #FFF0F0;
+}
+
+/* Home ----------------------------------------- */
+
+.bg {
+  /* The image used */
+  background: url("../images/los-llanos.jpg");
+  background-color: beige;
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Portal --------------------------------------- */
+
+.relationship-title {
+  background: none;
+  font-style: italic;
+  font-size: 30px;
+  color: #FFCC00;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.employee-name {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.employee-location-delete-btn {
+  margin-right: 0;
+  padding: 0px 5px;
+  border-color: #CF142B;
+}
+
+.employee-location-delete-btn:hover {
+  background-color: #CF142B;
+}
+
+.employee-location-btn {
+  font-size: 20px;
+  padding: 0px 5px;
+}
+
+.add-location-employee {
+  display: inline-block;
+  width: 125px;
+}
+
+.employee-add-location-btn {
+  padding: 5px 5px 0px 5px;
+}
+
+/* Location Section ----------------------------- */
+
+.location {
+  background-color: #171717;
+  height: 300px;
+}
+
+.location-name {
+  font-family: Alegreya;
+  font-size: 35px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.location-address {
+  font-size: 14px;
+  font-weight: lighter;
+  color: lightgray;
+  margin-bottom: 0;
+}
+
+.location-phone {
+  font-size: 14px;
+  font-weight: lighter;
+  color: lightgray;
+}
+
+.location-times {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.location-change {
+  color: #FFCC00;
+}
+
+.menu-download {
+  font-style: italic;
+  color: #535353;
+}
+
+.locations {
+  background: none;
+  padding-top: 0;
+}
+
+.location-btn {
+  font-size: 25px;
+  margin: 10px;
+}
+
+.location-active-btn {
+  font-size: 25px;
+  margin: 10px;
+  background-color: #00247D;
+  border-color: #00247D;
+  color: #FFF0F0;
+}
+
+.location-active-btn:hover {
+  background-color: #00247D;
+}
+
+.location-input {
+  width: 250px;
+  font-size: 25px;
+}
+
+.location-add-btn {
+  font-size: 20px;
+}
+
+.location-edit-btn {
+  margin-left: 0;
+}
+
+.location-delete-btn {
+  margin-right: 0;
+  padding: 2px 5px 0px 5px;
+  border-color: #CF142B;
+}
+
+.location-delete-btn:hover {
+  background-color: #CF142B;
+}
+
+.combine {
+  display: inline-block;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.add-location {
+  display: inline-block;
+  width: 250px;
+}
+
+.del-emp {
+  margin: 5px;
+}
+
+
+
+/* Menu Sections ----------------------------- */
+
+.food-type {
+  background: none;
+  font-family: Alegreya;
+  font-size: 45px;
+  padding: 0;
+  margin: 0;
+  color: #202020;
+}
+
+.food-description {
+  background: none;
+  font-style: italic;
+  font-size: 20px;
+  padding: 0;
+}
+
+h2 {
+  padding-top: 10px;
+}
+
+.menu-price {
+  color: #FFCC00;
+}
+
+/* Plates ---------------------------------- */
+
+.plate-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.pabellon-icon {
+  background-image: url(../images/pabellon-v2.jpg);
+}
+
+.arepas-icon {
+  background-image: url(../images/arepas.jpeg);
+}
+
+.cachapas-icon {
+  background-image: url(../images/cachapas.jpg);
+}
+
+.tequenos-icon {
+  background-image: url(../images/tequenos.jpg);
+}
+
+.empanadas-icon {
+  background-image: url(../images/empanadas.jpg);
+}
+
+.tostones-icon {
+  background-image: url(../images/tostones.jpg);
+}
+
+/* BAG ----------------------------------- */
+
+.bag-title {
+  padding-bottom:15px;
+}
+
+.item-wrapper {
+  padding: 0;
+}
+
+.number-items {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30px;
+  height: 100%;
+}
+
+.total-price-title {
+  background: none;
+  font-family: Alegreya;
+  font-size: 40px;
+  padding: 10px 0 0 0;
+  margin: 0;
+  color: #202020;
+}
+
+.total-price {
+  background: none;
+  font-family: Alegreya;
+  font-size: 35px;
+  padding: 0;
+  color: #FFCC00;
+}
+
+.order-form {
+  background: none;
+  padding: 0;
+}
+
+/* SUBMITTED ORDERS ------------------------------ */
+
+.orders-title {
+  background: none;
+  font-family: Alegreya;
+  font-size: 45px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  color: #202020;
+}
+
+.order {
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.check-order-btn {
+  color: #535353;
+  text-decoration: none;
+  margin: 0;
+}
+
+.check-order-btn:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.number-ordered {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.number-not-ready {
+  display: inline-block;
+  font-size: 20px;
+  color: #CF142B;
+}
+
+.number-cooking {
+  display: inline-block;
+  font-size: 20px;
+  color: #00247D;
+}
+
+.number-ready {
+  display: inline-block;
+  font-size: 20px;
+  color: #FFCC00;
+}
+
+.customer-name-order {
+  font-size: 30px;
+}
+
+.time-ordered {
+  font-size: 20px;
+}
+
+.customer-name {
+  background: none;
+  font-family: Alegreya;
+  font-size: 45px;
+  padding: 0;
+  margin: 0;
+  color: #202020;
+}
+
+.customer-address {
+  background: none;
+  font-style: italic;
+  font-size: 20px;
+  padding: 0;
+}
+
+.ordered-plate {
+  margin-bottom: 0px;
+}
+
+.number-ordered-items {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-title {
+  font-family: Roboto-Condensed;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients {
+  padding: 0;
+}
+
+.orders-none {
+  background: none;
+  font-family: Alegreya;
+  font-size: 30px;
+  padding: 0;
+  margin-bottom: 150px;
+  color: #202020;
+}
+
+.fulfill-btn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #FFCC00;
+}
+
+.fulfill-btn:hover {
+  background-color: #FFCC00;
+}
+
+.fulfilled-btn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  background-color: #FFCC00;
+}
+
+.fulfilled-btn:hover {
+  background-color: #FFCC00;
+}
+
+.f-not-fulfilled-btn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #CF142B;
+}
+
+.f-not-fulfilled-btn:hover {
+  background-color: transparent;
+}
+
+.not-fulfilled-btn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #CF142B;
+  background-color: #CF142B;
+}
+
+.not-fulfilled-btn:hover {
+  background-color: #CF142B;
+}
+
+.nf-fulfilled-btn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #FFCC00;
+}
+
+.nf-fulfilled-btn:hover {
+  background-color: transparent;
+}
+
+.cancel-btn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #CF142B;
+}
+
+.cancel-btn:hover {
+  background-color: #CF142B;
+}
+
+.f-cancel-btn {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 2px;
+  border-color: #00247D;
+}
+
+.f-cancel-btn:hover {
+  color: white;
+  background-color: #00247D;
+}
+
+.employee-ful {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #00247D;
+  background-color: #00247D;
+
+}
+
+.employee-ful:hover {
+  background-color: #00247D;
+}
+
+.employee-nful {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  border-color: #00247D;
+}
+
+.employee-nful:hover {
+  background-color: transparent;
+}
+
+/* EDIT MENU ------------------------------ */
+
+.location-form {
+  display: inline-block;
+  width: 450px;
+  margin: 5px;
+  margin-top: 0px;
+}
+
+.location-address-form {
+  display: inline-block;
+  width: 300px;
+  margin: 5px;
+  margin-top: -10px;
+}
+.location-phone-form {
+  display: inline-block;
+  width: 200px;
+  margin: 5px;
+}
+
+.location-times-form {
+  display: inline-block;
+  width: 400px;
+  margin: 5px 0 10px 0;
+}
+
+.add-pic {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+.add-name {
+  display: inline-block;
+  width: 250px;
+  margin: 5px;
+  font-size: 27px;
+}
+
+.add-description {
+  display: inline-block;
+  width: 300px;
+  margin: 5px;
+}
+
+.add-price {
+  display: inline-block;
+  width: 200px;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+.plate-icon-edit {
+  position: relative;
+}
+
+.food-type-form {
+  display: inline-block;
+  width: 400px;
+  margin: 10px;
+}
+
+.food-description-form {
+  display: inline-block;
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+/* SIGN IN ------------------------------*/
+
+.sign-in-title {
+  background: none;
+  font-family: Alegreya;
+  font-size: 45px;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+  color: #202020;
+}
+
+.textbox {
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  background:
+     linear-gradient(
+       to left,
+       #CF142B 0,
+       #CF142B 33.3%,
+       #00247D 33.3%,
+       #00247D 66.6%,
+       #FFCC00 66.6%,
+       #FFCC00 )bottom no-repeat;
+  background-size: 100% 3px;
+}
+
+.textbox input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.login-btn {
+  margin: 10px;
+}
+
+.register-btn {
+  margin: 10px 0 60px 0;
+}
+
+/* FAS ----------------------------------*/
+
+.fas-bag {
+  font-size: 20px;
+}
+
+.fas-add-remove {
+  font-size: 30px;
+}
+
+.fas-times {
+  font-size: 30px;
+}
+
+.fas-times-sm {
+  font-size: 15px;
+}
+
+.fas-times-md {
+  font-size: 20px;
+}
+
+.fas-pen-sm {
+  font-size: 15px;
+  color: #222222;
+}
+
+.fas-pen-md {
+  font-size: 25px;
+}
+
+.fas-pen-lg {
+  font-size: 50px;
+}
+
+.fas-plus-lg {
+  font-size: 30px;
+}
+
+.fas-pen-type {
+  font-size: 40px;
+}
+
+.fas-pen-description {
+  font-size: 20px;
+}
+
+#error::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #CF142B;
+  opacity: 0.8; /* Firefox */
+}
+
+#error::-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #CF142B;
+}
+
+#error::-ms-input-placeholder { /* Microsoft Edge */
+  color: #CF142B;
+}
+
+
+
+@media only screen and (max-width: 490px) {
+
+  .top-buffer {
+    height: 50px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .footer-p {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .brand-name {
+    letter-spacing: 2px;
+    margin-right: 0;
+  }
+
+  footer .brand-name {
+    margin: 15px auto;
+    letter-spacing: 5px;
+  }
+}

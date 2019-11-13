@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}El Llanero - Sign In{% endblock %}
+
+{% block dark-banner %}{% endblock %}
+
+{% block content %}
+  <p class="jumbotron text-center sign-in-title">LOGIN</p>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6 offset-md-3 login-box">
+        <div class="textbox">
+          <i class="fas fa-user"></i>
+          {% if not form.username.errors %}
+          <input type="text" placeholder="Username" name="username" required>
+          {% else %}
+          {% for error in form.username.errors %}
+          <input id="error" type="text" placeholder="{{ error }}" name="username" required>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="textbox">
+          <i class="fas fa-lock"></i>
+          {% if not form.password.errors %}
+          <input type="password" placeholder="Password" name="password" required>
+          {% else %}
+          {% for error in form.password.errors %}
+          <input id="error" type="password" placeholder="{{ error }}" name="password" required>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn login-btn" name="login" value="">LOG IN</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <p class="jumbotron text-center sign-in-title">REGISTER</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6 offset-md-3 login-box">
+        <div class="textbox">
+          <i class="fas fa-signature"></i>
+          {% if not form.first_name.errors %}
+          <input type="text" placeholder="First Name" name="first_name" required>
+          {% else %}
+          {% for error in form.first_name.errors %}
+          <input id="error" type="text" placeholder="{{ error }}" name="first_name"required>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="textbox">
+          <i class="fas fa-signature"></i>
+          {% if not form.last_name.errors %}
+          <input type="text" placeholder="Last Name" name="last_name" required>
+          {% else %}
+          {% for error in form.last_name.errors %}
+          <input id="error" type="text" placeholder="{{ error }}" name="last_name" required>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="textbox">
+          <i class="fas fa-user"></i>
+          {% if not form.username.errors %}
+          <input type="text" placeholder="Username" name="username" required>
+          {% else %}
+          {% for error in form.username.errors %}
+          <input id="error" type="text" placeholder="{{ error }}" name="username" required>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="textbox">
+          <i class="fas fa-lock"></i>
+          {% if not form.password.errors %}
+          <input type="password" placeholder="Password" name="password" required>
+          {% else %}
+          {% for error in form.password.errors %}
+          <input id="error" type="password" placeholder="{{ error }}" name="password" required>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn register-btn" name="register" >REGISTER</button>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

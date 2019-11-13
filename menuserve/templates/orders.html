@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}El Llanero - Orders{% endblock %}
+
+{% block location-name %}{{ current_location }}{% endblock %}
+{% block extra-loc-detail %}<a href="{% url 'locations' %}" class="location-change">Change Location</a>{% endblock %}
+
+{% block content %}
+  <p class="jumbotron text-center orders-title">ORDERS</p>
+
+  {% if orders %}
+    <form method="post" action="">
+      {% csrf_token %}
+      <div id="orders" class="row">
+        {% for order in orders %}
+        <div class="col-lg-4">
+          <div class="order">
+            <a class='check-order-btn'>
+              <p class="number-ordered">{{order.total_items}}</p>
+              {% if is_customer %}
+                {% if order.fulfilled %}
+                  <a class="btn fulfilled-btn">FULFILLED</a>
+                  <button type="submit" name="cancel" value="{{ order.id }}" class="btn f-cancel-btn">&times</button>
+                  <a class="btn f-not-fulfilled-btn">NOT FULFILLED</a>
+                {% else %}
+                  <a class="btn nf-fulfilled-btn">FULFILLED</a>
+                  <button type="submit" name="cancel" value="{{ order.id }}" class="btn f-cancel-btn">&times</button>
+                  <a class="btn not-fulfilled-btn">NOT FULFILLED</a>
+                {% endif %}
+              {% else %}
+                <button type="submit" name="fulfill" value="{{ order.id }}" class="btn fulfill-btn">FULFILL</button>
+                {% if order.fulfilled %}
+                  <a class="btn employee-ful">FULFILLED</a>
+                {% else %}
+                  <a class="btn employee-nful">FULFILLED</a>
+                {% endif %}
+                <button type="submit" name="cancel" value="{{ order.id }}" class="btn cancel-btn">CANCEL</button>
+              {% endif %}
+              <p class="customer-name-order">{{order.name}}</p>
+              <p class="time-ordered">{{order.delivery}}</p><!--(time ordered) xx:xx:xx pm</p>-->
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div><!-- /.row -->
+    </form>
+  {% else %}
+    <p class="jumbotron text-center orders-none">NO ORDERS PLACED</p>
+  {% endif %}
+
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript" src="{% static 'js/refresh.js' %}"></script>
+{% endblock %}

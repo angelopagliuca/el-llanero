@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}El Llanero - Edit Menu{% endblock %}
+
+{% block extra-loc-detail %}<p class="location-change">Edit Menu</p>{% endblock %}
+
+{% block content %}
+
+  <p class="jumbotron text-center title-big">EDIT MENU</p>
+
+  <p class="jumbotron text-center food-type">Traditional Dishes</p>
+  <p class="jumbotron text-center food-description">Delicious Dishes traditionally eaten by the people of Venezuela.</p>
+
+  <div class="row">
+    {% for dish in dishes %}
+    <div class="col-lg-4">
+      <form action="" method="post">
+        {% csrf_token %}
+        {% if dish.image %}
+          <img src="{{dish.image.url}}" class="rounded-circle plate-icon"><title>{{dish.name}}</title></img>
+        {% endif %}
+        <h2><input name="edit-name{{dish.id}}" class="form-control form-control-sm add-name" value="{{dish.name}}"></h2>
+        <input name="edit-description{{dish.id}}" class="form-control form-control-sm add-description" value="{{dish.description}}">
+        <input name="edit-price{{dish.id}}" class="form-control form-control-sm add-price" value="{{dish.price}}">
+        <input type="hidden" name="id" value="{{ dish.id }}">
+        <p><button type="submit" name="edit" value="{{ dish.id }}" class="btn edit-btn-sm">EDIT</button></p>
+        <p><button type="submit" name="delete" value="{{ dish.id }}" class="btn delete-btn">DELETE</button></p>
+      </form>
+    </div>
+    {% endfor %}
+    <div class="col-lg-4">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="new-item">
+        <button type="submit" name="dish" class="btn new-plate-btn"><i class='fas fa-plus fas-plus-lg'></i></button>
+      </form>
+    </div>
+  </div><!-- /.row -->
+
+  <p class="jumbotron text-center food-type">Traditional Snacks</p>
+  <p class="jumbotron text-center food-description">Delicious Snacks traditionally eaten by the people of Venezuela.</p>
+
+  <div class="row">
+    {% for snack in snacks %}
+    <div class="col-lg-4">
+      <form action="" method="post">
+        {% csrf_token %}
+        {% if snack.image %}
+          <img src="{{snack.image.url}}" class="rounded-circle plate-icon"><title>{{snack.name}}</title></img>
+        {% endif %}
+        <h2><input name="edit-name{{snack.id}}" class="form-control form-control-sm add-name" value="{{snack.name}}"></h2>
+        <input name="edit-description{{snack.id}}" class="form-control form-control-sm add-description" value="{{snack.description}}">
+        <input name="edit-price{{snack.id}}" class="form-control form-control-sm add-price" value="{{snack.price}}">
+        <input type="hidden" name="id" value="{{ snack.id }}">
+        <p><button type="submit" name="edit" value="{{ snack.id }}" class="btn edit-btn-sm">EDIT</button></p>
+        <p><button type="submit" name="delete" value="{{ snack.id }}" class="btn delete-btn">DELETE</button></p>
+      </form>
+    </div>
+    {% endfor %}
+    <div class="col-lg-4">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="new-item">
+        <button type="submit" name="snack" class="btn new-plate-btn"><i class='fas fa-plus fas-plus-lg'></i></button>
+      </form>
+    </div>
+  </div><!-- /.row -->
+
+  <p class="jumbotron text-center food-type">Traditional Drinks</p>
+  <p class="jumbotron text-center food-description">Delicious Drinks traditionally eaten by the people of Venezuela.</p>
+
+  <div class="row">
+    {% for drink in drinks %}
+    <div class="col-lg-4">
+      <form action="" method="post">
+        {% csrf_token %}
+        {% if drink.image %}
+          <img src="{{drink.image.url}}" class="rounded-circle plate-icon"><title>{{drink.name}}</title></img>
+        {% endif %}
+        <h2><input name="edit-name{{drink.id}}" class="form-control form-control-sm add-name" value="{{drink.name}}"></h2>
+        <input name="edit-description{{drink.id}}" class="form-control form-control-sm add-description" value="{{drink.description}}">
+        <input name="edit-price{{drink.id}}" class="form-control form-control-sm add-price" value="{{drink.price}}">
+        <input type="hidden" name="id" value="{{ drink.id }}">
+        <p><button type="submit" name="edit" value="{{ drink.id }}" class="btn edit-btn-sm">EDIT</button></p>
+        <p><button type="submit" name="delete" value="{{ drink.id }}" class="btn delete-btn">DELETE</button></p>
+      </form>
+    </div>
+    {% endfor %}
+    <div class="col-lg-4">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="new-item">
+        <button type="submit" name="drink" class="btn new-plate-btn"><i class='fas fa-plus fas-plus-lg'></i></button>
+      </form>
+    </div>
+  </div><!-- /.row -->
+
+  <p class="jumbotron text-center food-type">Traditional Desserts</p>
+  <p class="jumbotron text-center food-description">Delicious Desserts traditionally eaten by the people of Venezuela.</p>
+
+  <div class="row">
+    {% for dessert in desserts %}
+    <div class="col-lg-4">
+      <form action="" method="post">
+        {% csrf_token %}
+        {% if dessert.image %}
+          <img src="{{dessert.image.url}}" class="rounded-circle plate-icon"><title>{{dessert.name}}</title></img>
+        {% endif %}
+        <h2><input name="edit-name{{dessert.id}}" class="form-control form-control-sm add-name" value="{{dessert.name}}"></h2>
+        <input name="edit-description{{dessert.id}}" class="form-control form-control-sm add-description" value="{{dessert.description}}">
+        <input name="edit-price{{dessert.id}}" class="form-control form-control-sm add-price" value="{{dessert.price}}">
+        <input type="hidden" name="id" value="{{ dessert.id }}">
+        <p><button type="submit" name="edit" value="{{ dessert.id }}" class="btn edit-btn-sm">EDIT</button></p>
+        <p><button type="submit" name="delete" value="{{ dessert.id }}" class="btn delete-btn">DELETE</button></p>
+      </form>
+    </div>
+    {% endfor %}
+    <div class="col-lg-4">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="new-item">
+        <button type="submit" name="dessert" class="btn new-plate-btn"><i class='fas fa-plus fas-plus-lg'></i></button>
+      </form>
+    </div>
+  </div><!-- /.row -->
+
+{% endblock %}
